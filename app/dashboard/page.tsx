@@ -350,7 +350,7 @@ export default function DashboardPage() {
                 <div className={`text-2xl font-bold ${getStatusColor(deviceData.co2, "co2")}`}>
                   {deviceData.co2.toFixed(2)} ppm
                 </div>
-                <p className="text-xs text-muted-foreground">Safe: {"<"} 3 ppm</p>
+                <p className="text-xs text-muted-foreground">Safe: {"<"} 800 ppm</p>
               </CardContent>
             </Card>
 

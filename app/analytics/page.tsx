@@ -173,10 +173,10 @@ export default function AnalyticsPage() {
     if (rangeData.length === 0) return
 
     const csvContent = [
-      "Timestamp,Temperature,Humidity,Pressure,CO,Methane,LPG,PM2.5,PM10,Noise,Light",
+      "Timestamp,Temperature,Humidity,Pressure,CO,CO2,Methane,LPG,PM2.5,PM10,Noise,Light",
       ...rangeData.map(
         (row) =>
-          `${new Date(Number.parseInt(row.recorded_at) * 1000).toISOString()},${row.temperature},${row.humidity},${row.pressure},${row.co},${row.methane},${row.lpg},${row.pm25},${row.pm10},${row.noise},${row.light}`,
+          `${new Date(Number.parseInt(row.recorded_at) * 1000).toISOString()},${row.temperature},${row.humidity},${row.pressure},${row.co},${row.co2},${row.methane},${row.lpg},${row.pm25},${row.pm10},${row.noise},${row.light}`,
       ),
     ].join("\n")
 
@@ -197,6 +197,7 @@ export default function AnalyticsPage() {
     humidity: item.humidity,
     pressure: item.pressure,
     co: item.co,
+    co2: item.co2,
     methane: item.methane,
     lpg: item.lpg,
     pm25: item.pm25,
@@ -240,7 +241,7 @@ export default function AnalyticsPage() {
       dataKey: "co",
       color: "#f59e0b",
       unit: "ppm",
-      safeRange: { max: 3 },
+      safeRange: { max: 800 },
       description: "CO concentration levels",
     },
     {
@@ -249,7 +250,7 @@ export default function AnalyticsPage() {
       dataKey: "co2",
       color: "#888f6dff",
       unit: "ppm",
-      safeRange: { max: 3 },
+      safeRange: { max: 800 },
       description: "CO2 concentration levels",
     },
     {
