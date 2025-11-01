@@ -44,6 +44,7 @@ interface RangeData {
   humidity: number
   pressure: number
   co: number
+  co2: number
   methane: number
   lpg: number
   pm25: number
@@ -241,6 +242,15 @@ export default function AnalyticsPage() {
       unit: "ppm",
       safeRange: { max: 3 },
       description: "CO concentration levels",
+    },
+    {
+      title: "Carbon Dioxide",
+      icon: Wind,
+      dataKey: "co2",
+      color: "#888f6dff",
+      unit: "ppm",
+      safeRange: { max: 3 },
+      description: "CO2 concentration levels",
     },
     {
       title: "Methane",
